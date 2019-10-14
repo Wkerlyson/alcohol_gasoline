@@ -44,7 +44,7 @@ class SubmitForm extends StatelessWidget {
         LoadingButton(
           busy: busy,
           func: submitFunc,
-          text: 'CALCULAR',
+          text: 'Calcular',
           invert: false,
         ),
       ],
