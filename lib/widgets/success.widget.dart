@@ -17,7 +17,7 @@ class Success extends StatelessWidget {
       margin: EdgeInsets.all(30),
       decoration: BoxDecoration(
         color: Colors.white.withOpacity(0.8),
-        borderRadius: BorderRadius.circular(25),
+        borderRadius: BorderRadius.circular(16),
       ),
       child: Column(
         children: <Widget>[

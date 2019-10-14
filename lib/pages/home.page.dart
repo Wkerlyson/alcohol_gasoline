@@ -10,6 +10,8 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  Color _color = Colors.deepPurple;
+
   var _gasCtrl = new MoneyMaskedTextController();
   var _alcCtrl = new MoneyMaskedTextController();
   var _busy = false;
@@ -19,24 +21,29 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Theme.of(context).primaryColor,
-      body: ListView(
-        children: <Widget>[
-          Logo(),
-          _completed
-              ? Success(
-                  result: _resultText,
-                  reset: reset,
-                )
-              : SubmitForm(
-                  alcCtrl: _alcCtrl,
-                  gastCtrl: _gasCtrl,
-                  submitFunc: calculate,
-                  busy: _busy,
-                ),
-        ],
-      ),
-    );
+        backgroundColor: Theme.of(context).primaryColor,
+        body: AnimatedContainer(
+          duration: Duration(
+            milliseconds: 1200,
+          ),
+          color: _color,
+          child: ListView(
+            children: <Widget>[
+              Logo(),
+              _completed
+                  ? Success(
+                      result: _resultText,
+                      reset: reset,
+                    )
+                  : SubmitForm(
+                      alcCtrl: _alcCtrl,
+                      gastCtrl: _gasCtrl,
+                      submitFunc: calculate,
+                      busy: _busy,
+                    ),
+            ],
+          ),
+        ));
   }
 
   Future calculate() {
@@ -48,6 +55,7 @@ class _HomePageState extends State<HomePage> {
     double res = alc / gas;
 
     setState(() {
+      _color = Colors.deepPurpleAccent;
       _completed = false;
       _busy = true;
     });
@@ -71,6 +79,7 @@ class _HomePageState extends State<HomePage> {
       _gasCtrl = new MoneyMaskedTextController();
       _completed = false;
       _busy = false;
+      _color = Colors.deepPurple;
     });
   }
 }
