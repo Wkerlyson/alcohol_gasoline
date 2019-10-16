@@ -62,7 +62,7 @@ class _HomePageState extends State<HomePage> {
     return new Future.delayed(const Duration(seconds: 1), () {
       setState(() {
         if (res >= 0.7)
-          _resultText = 'Compensa Utilizar Gasolica';
+          _resultText = 'Compensa Utilizar Gasolina';
         else
           _resultText = 'Compensa utilizar Álcool';
 
